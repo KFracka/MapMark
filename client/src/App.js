@@ -1,15 +1,13 @@
 // client/src/App.js
 import React from 'react';
-import Map from './Map';
+import LeafletMap from './components/LeafletMap';
+import './App.css'; // If you have styles, keep this line; otherwise, you can remove it.
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <main>
-        <Map />
-      </main>
+    <div>
+      <h1>React Leaflet Map</h1>
+      <LeafletMap />
     </div>
   );
 }
