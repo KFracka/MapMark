@@ -1,0 +1,56 @@
+/* client/src/components/AuthForm.css */
+
+.auth-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.auth-form {
+  margin-top: 20px;
+}
+
+.auth-form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.auth-form-group {
+  margin-bottom: 15px;
+}
+
+.auth-form-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-form-link {
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-form-link:hover {
+  text-decoration: underline;
+}
+/*
+.auth-form {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    z-index: 1000;
+  }
+  */
+
