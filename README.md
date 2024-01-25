@@ -1,6 +1,6 @@
 # MapMark
 
-This project is a simple web application that integrates React, Node.js, and Bootstrap to display a map using the Google Maps API.
+This project is a simple web application that integrates React, Node.js, and Bootstrap to display a map using the Leaflet API.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This project is a simple web application that integrates React, Node.js, and Boo
 
 ## Description
 
-The project combines a React front-end with a Node.js back-end to display a map using the Google Maps API. It serves as a starting point for building web applications that involve mapping functionalities.
+The project combines a React front-end with a Node.js back-end to display a map using the Leaflet API. It serves as a starting point for building web applications that involve mapping functionalities.
 
 ## Prerequisites
 
@@ -22,7 +22,6 @@ Before you begin, ensure you have met the following requirements:
 
 - Node.js installed on your machine ([Download Node.js](https://nodejs.org/))
 - npm (Node Package Manager) installed (comes with Node.js installation)
-- Google Maps API key (instructions on obtaining one can be found [here](https://developers.google.com/maps/gmp-get-started))
 
 ## Installation
 
@@ -31,39 +30,22 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    git clone https://github.com/your-username/react-nodejs-map.git
 
-2. **Navigate to the project directory:**
-
-    cd react-nodejs-map
-
-3. **Install dependencies for both the client and server:**
+2. **Install dependencies for both the client and server:**
 
     cd client
     npm install
     cd ../server
     npm install
 
-## Configuration
-
-1. **Set up the Google Maps API key:**
-
-        -Open the client/src/components/GoogleMap.jsx file.
-        -Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual API key.
-
 ## Usage
 
-1. **Run the server:**
+1. **Run the server and client concurrently:**
 
-    cd server
     npm start
         -The server will run at http://localhost:3001.
-
-2. **Run the client:**
-
-    cd client
-    npm start
         -The React app will run at http://localhost:3000.
 
-3. **Open your browser and go to 'http://localhost:3000' to view the application.**
+2. **Open your browser and go to 'http://localhost:3000' to view the application.**
 
 # Getting Started with Create React App
 
