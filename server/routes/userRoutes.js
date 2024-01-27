@@ -75,7 +75,7 @@ router.post('/login', (req, res) => {
     }
 });
 
-// Route to update user password
+// Route to update user password or reset password (for forgot password)
 router.put('/update-password', (req, res) => {
     const { email, oldPassword, newPassword, forgotPassword } = req.body;
 

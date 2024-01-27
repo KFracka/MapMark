@@ -1,0 +1,53 @@
+[
+  {
+    "lat": "54.353372664493705",
+    "lng": "18.64194975935183",
+    "imageURL": "/flag-marker.svg"
+  },
+  {
+    "lat": "54.52381069112055",
+    "lng": "18.5265604954211",
+    "imageURL": "/flag-marker.svg"
+  },
+  {
+    "lat": "54.46076305526746",
+    "lng": "18.56813313050807",
+    "imageURL": "/flag-marker.svg"
+  },
+  {
+    "lat": "54.353372664493705",
+    "lng": "18.6144077122072",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "lat": "54.52381069112055",
+    "lng": "18.555871454543883",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "lat": "39.3260685",
+    "lng": "21.005563012739966",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "lat": "-15",
+    "lng": "10",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "lat": "-17.31194506674025",
+    "lng": "-44.41310327036328",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "lat": "-8.463876016537158",
+    "lng": "-55.02965132591267",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  }
+]

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="-2.5 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <title>flag</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+</defs>
+    <g id="Vivid.JS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Vivid-Icons" transform="translate(-358.000000, -566.000000)">
+            <g id="Icons" transform="translate(37.000000, 169.000000)">
+                <g id="flag" transform="translate(312.000000, 390.000000)">
+                    <g transform="translate(9.000000, 7.000000)" id="Shape">
+                        <polygon fill="#FF6E6E" points="22 17 30 25 9 25 9 20 4 20 4 2 18 2 18 9 30 9">
+</polygon>
+                        <path d="M0,0 L4,0 L4,35 L0,35 L0,0 Z M17,20 L9,25 L9,20 L17,20 Z" fill="#0C0058">
+</path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Import cors module
 const userRoutes = require('./routes/userRoutes');
+const markerRoutes = require('./routes/markerRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,7 +22,12 @@ app.use((req, res, next) => {
 // User routes
 app.use('/api/users', userRoutes);
 
+// Marker routes
+app.use('/api/markers', markerRoutes);
+
 app.listen(PORT, () => {
     console.log('Server is running on http://localhost:3001');
 });
+
+
 
