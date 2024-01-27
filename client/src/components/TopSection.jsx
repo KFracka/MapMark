@@ -6,12 +6,13 @@ const TopSection = ({
     searchQuery,
     setSearchQuery,
     handleSearch,
-    showAddMarkerModal,
     setShowAddMarkerModal,
-    showDeleteMarkerModal,
     setShowDeleteMarkerModal,
-    onSearchButtonClick,
 }) => {
+    const handleSearchClick = async () => {
+    await handleSearch();
+};
+
     return (
         <Row className="mt-3 justify-content-center align-items-center" style={{ height: '10%' }}>
             <Col md={6}>
@@ -35,7 +36,7 @@ const TopSection = ({
                     </Button>
                     <Button
                         variant="primary"
-                        onClick={() => setSearchQuery(searchQuery)}
+                        onClick={handleSearchClick}
                         className="mb-2 ml-2"
                         style={{ width: 'calc(33% - 2px)' }}
                     >

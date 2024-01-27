@@ -1,7 +1,7 @@
 // client/src/components/LeafletMap.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { TileLayer, Marker, Popup, MapContainer as Map, useMap } from 'react-leaflet';
-import L, { marker } from 'leaflet';
+import L from 'leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import { Form, Button, Container, Row, Col, Modal } from 'react-bootstrap';
@@ -22,10 +22,9 @@ const LeafletMap = () => {
     const [newMarkerName, setNewMarkerName] = useState('');
     const [specialMarkers, setSpecialMarkers] = useState([]);
     const [allMarkers, setAllMarkers] = useState([]);
-    
 
     const onSearchButtonClick = async () => {
-        try{
+        try {
             const response = await axios.get(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${searchQuery}`
             );
@@ -136,37 +135,58 @@ const LeafletMap = () => {
             </Marker>
         ));
 
+        return (
+            searchResults.map((result) => (
+                <Marker
+                    key={result.place_id}
+                    position={[result.lat, result.lon]}
+                    onClick={() => handleMarkerClick({ lat: result.lat, lng: result.lon })}
+                    icon={defaultIcon}
+                >
+                    <Popup>
+                        {result.display_name}
+                        <Button
+                            variant="danger"
+                            size="sm"
+                            className="m1-2"
+                            onClick={() => handleDeleteMarker(result.lat, result.lon)}
+                        >
+                            Delete Marker
+                        </Button>
+                    </Popup>
+                </Marker>
+            ))
+            .concat(
+                allMarkers.map((singleMarker) => (
+                    <Marker
+                        key={`${singleMarker.lat}-${singleMarker.lng}`}
+                        position={[parseFloat(singleMarker.lat), parseFloat(singleMarker.lng)]}
+                        icon={singleMarker.isSpecial ? specialIcon : defaultIcon}
+                    >
+                        <Popup>
+                            <div>
+                                <h4>{`Marker at (${singleMarker.lat}, ${singleMarker.lng})`}</h4>
+                                {singleMarker.isSpecial && <p>This is a special marker!</p>}
+                                <img src={singleMarker.imageURL} alt="Marker" style={{ width: '100px', height: '100px' }} />
+                                {/* Add other details from markers.json as needed */}
+                            </div>
+                        </Popup>
+                    </Marker>
+                ))
+            )
+    );
+};
 
-        return markersFromSearchResults &&allMarkers.map((singleMarker) => (
-            <Marker
-                key={`${singleMarker.lat}-${singleMarker.lng}`}
-                position={[parseFloat(singleMarker.lat), parseFloat(singleMarker.lng)]}
-                icon={singleMarker.isSpecial ? specialIcon : defaultIcon}
-            >
-                <Popup>
-                    <div>
-                        <h4>{`Marker at (${singleMarker.lat}, ${singleMarker.lng})`}</h4>
-                        {singleMarker.isSpecial && <p>This is a special marker!</p>}
-                        <img src={singleMarker.imageURL} alt="Marker" style={{ width: '100px', height: '100px' }} />
-                        {/* Add other details from markers.json as needed */}
-                    </div>
-                </Popup>
-            </Marker>
-        ));
-    };
-
-    return (
-        <Container fluid style={{ padding: 0, margin: 0, height: '100vh' }}>
-            <TopSection
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
-                handleSearch={handleSearch}
-                showAddMarkerModal={showAddMarkerModal}
-                setShowAddMarkerModal={setShowAddMarkerModal}
-                showDeleteMarkerModal={showDeleteMarkerModal}
-                setShowDeleteMarkerModal={setShowDeleteMarkerModal}
-                onSearchButtonClick={onSearchButtonClick}
-            />
+return (
+    <Container fluid style={{ padding: 0, margin: 0, height: '100vh' }}>
+        <TopSection
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            handleSearch={handleSearch}
+            setShowAddMarkerModal={setShowAddMarkerModal}
+            setShowDeleteMarkerModal={setShowDeleteMarkerModal}
+            onSearchButtonClick={onSearchButtonClick}
+        />
             <Row className="mt-3" style={{ height: 'calc(100% - 64px)' }}>
                 <Col style={{ height: '100%', overflow: 'hidden' }}>
                     <Map
@@ -181,64 +201,57 @@ const LeafletMap = () => {
                         />
                         {renderMarkers()}
                         {selectedLocation && (
-                            <>
-                                <Marker position={[selectedLocation.lat, selectedLocation.lng]} />
-                            </>
-                        )}
-                        {newMarkerLat && newMarkerLng && (
-                            <Marker position={[parseFloat(newMarkerLat), parseFloat(newMarkerLng)]} icon={specialIcon} />
+                            <Marker
+                                position={[selectedLocation.lat, selectedLocation.lng]}
+                                icon={specialIcon}
+                            >
+                                <Popup>{`Selected Location: ${selectedLocation.lat}, ${selectedLocation.lng}`}</Popup>
+                            </Marker>
                         )}
                     </Map>
                 </Col>
             </Row>
-            <Button variant="danger" onClick={() => setShowDeleteMarkerModal(true)}>
-                Delete Marker
-            </Button>
-
-            {/* Modal for adding a new marker */}
             <Modal show={showAddMarkerModal} onHide={() => setShowAddMarkerModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Marker</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form onSubmit={handleAddMarker}>
                         <Form.Group controlId="newMarkerName">
-                            <Form.Label>Name: </Form.Label>
+                            <Form.Label>Marker Name</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter Name"
+                                placeholder="Enter marker name"
                                 value={newMarkerName}
                                 onChange={(e) => setNewMarkerName(e.target.value)}
+                                required
                             />
                         </Form.Group>
                         <Form.Group controlId="newMarkerLat">
-                            <Form.Label>Latitude: </Form.Label>
+                            <Form.Label>Latitude</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter Latitude"
+                                placeholder="Enter latitude"
                                 value={newMarkerLat}
                                 onChange={(e) => setNewMarkerLat(e.target.value)}
+                                required
                             />
                         </Form.Group>
                         <Form.Group controlId="newMarkerLng">
-                            <Form.Label>Longitude: </Form.Label>
+                            <Form.Label>Longitude</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter Longitude"
+                                placeholder="Enter longitude"
                                 value={newMarkerLng}
                                 onChange={(e) => setNewMarkerLng(e.target.value)}
+                                required
                             />
                         </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Add Marker
+                        </Button>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowAddMarkerModal(false)}>
-                        Cancel
-                    </Button>
-                    <Button variant="primary" onClick={handleAddMarker}>
-                        Add Marker
-                    </Button>
-                </Modal.Footer>
             </Modal>
             <Modal show={showDeleteMarkerModal} onHide={() => setShowDeleteMarkerModal(false)}>
                 <Modal.Header closeButton>

@@ -49,5 +49,33 @@
     "lng": "-55.02965132591267",
     "imageURL": "/flag-marker.svg",
     "isSpecial": true
+  },
+  {
+    "name": "Poland",
+    "lat": "52.8868355894482",
+    "lng": "18.502723064311674",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "name": "Germany",
+    "lat": "51.06134416247721",
+    "lng": "9.935633768528785",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "name": "Albania",
+    "lat": "41.01409610000975",
+    "lng": "20.358808380341817",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
+  },
+  {
+    "name": "France",
+    "lat": "46.62545509119853",
+    "lng": "2.2123810607309022",
+    "imageURL": "/flag-marker.svg",
+    "isSpecial": true
   }
 ]
