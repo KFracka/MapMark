@@ -1,6 +1,6 @@
 # MapMark
 
-This project is a simple web application that integrates React, Node.js, and Bootstrap to display a map using the Leaflet API.
+This project is a simple web application that integrates React, Node.js, and Bootstrap to display a map using the Leaflet API - OpenStreetMap.
 
 ## Table of Contents
 
