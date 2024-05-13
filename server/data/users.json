@@ -2,17 +2,5 @@
   {
     "email": "test@test.com",
     "password": "test"
-  },
-  {
-    "email": "test2@test.com",
-    "password": "test123"
-  },
-  {
-    "email": "test3@test.com",
-    "password": "test3"
-  },
-  {
-    "email": "test@example.com",
-    "password": "newpassword123"
   }
 ]
