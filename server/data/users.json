@@ -1,7 +1,7 @@
 [
   {
     "email": "test@test.com",
-    "password": "test123"
+    "password": "test"
   },
   {
     "email": "test2@test.com",
@@ -10,5 +10,9 @@
   {
     "email": "test3@test.com",
     "password": "test3"
+  },
+  {
+    "email": "test@example.com",
+    "password": "newpassword123"
   }
 ]

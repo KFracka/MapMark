@@ -58,13 +58,6 @@
     "isSpecial": true
   },
   {
-    "name": "Germany",
-    "lat": "51.06134416247721",
-    "lng": "9.935633768528785",
-    "imageURL": "/flag-marker.svg",
-    "isSpecial": true
-  },
-  {
     "name": "Albania",
     "lat": "41.01409610000975",
     "lng": "20.358808380341817",
