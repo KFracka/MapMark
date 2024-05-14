@@ -37,8 +37,9 @@ const TopSection = ({
                     <Button
                         variant="primary"
                         onClick={handleSearchClick}
-                        className="mb-2 ml-2"
+                        className="mb-2 ml-2 search-button"
                         style={{ width: 'calc(33% - 2px)' }}
+                        data-testid="search-button"
                     >
                         Search
                     </Button>

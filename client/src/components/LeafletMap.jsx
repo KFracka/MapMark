@@ -23,7 +23,8 @@ const LeafletMap = () => {
     const [specialMarkers, setSpecialMarkers] = useState([]);
     const [allMarkers, setAllMarkers] = useState([]);
 
-    const onSearchButtonClick = async () => {
+    const onSearchButtonClick = async (e) => {
+        e.preventDefault(); // Prevent from submission
         try {
             const response = await axios.get(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${searchQuery}`
@@ -46,6 +47,10 @@ const LeafletMap = () => {
         fetchSpecialMarkers();
     }, []);
 
+    const handleMarkerClick = (location) => {
+        setSelectedLocation(location);
+    }
+
     const handleSearch = async () => {
         try {
             const response = await axios.get(
@@ -56,10 +61,6 @@ const LeafletMap = () => {
         } catch (error) {
             console.error('Error fetching search results:', error);
         }
-    };
-
-    const handleMarkerClick = (location) => {
-        setSelectedLocation(location);
     };
 
     const handleDeleteMarker = async (lat, lng) => {
