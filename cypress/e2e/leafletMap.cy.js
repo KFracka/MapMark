@@ -1,7 +1,7 @@
 // spec.cy.js
 describe('LeafletMap Component Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/'); // Assuming your application's URL is '/'
+    cy.visit('http://localhost:3000/'); 
   });
 
   it('should render the LeafletMap component', () => {
@@ -75,7 +75,7 @@ describe('LeafletMap Component Tests', () => {
 
     cy.intercept('DELETE', 'http://localhost:3001/api/markers/delete').as('deleteMarkerRequest');
 
-    // Assuming you have a marker at these coordinates
+    
     const lat = '40.7128';
     const lng = '-74.0060';
 

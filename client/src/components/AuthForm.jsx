@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import './AuthForm.css'; // Import the styles
+import './AuthForm.css'; 
 
 const AuthForm = () => {
     const [email, setEmail] = useState("");
@@ -58,10 +58,10 @@ const AuthForm = () => {
                 password,
             });
 
-            console.log(response.data); // Handle successful registration response
-            setRegistrationSuccess(true); // Set success state
-            setError(""); // Clear any previous errors
-            setTimeout(() => setRegistrationSuccess(false), 3000); // Reset after 3 seconds
+            console.log(response.data); 
+            setRegistrationSuccess(true); 
+            setError(""); 
+            setTimeout(() => setRegistrationSuccess(false), 3000); 
         } catch (error) {
             console.error("Registration failed", error.response?.data.message);
             setError("Registration failed: " + (error.response?.data.message || error.message));
@@ -78,9 +78,9 @@ const AuthForm = () => {
                 forgotPassword: true,
             });
 
-            console.log(response.data); // Handle successful password reset response
-            setShowResetForm(false); // Hide the reset password form
-            setError(""); // Clear any previous errors
+            console.log(response.data);
+            setShowResetForm(false); 
+            setError(""); 
 
         } catch (error) {
             console.error("Password reset failed", error.response?.data || error.message);
@@ -88,7 +88,6 @@ const AuthForm = () => {
         }
     };
 
-    // Use `useEffect` to clear the login status and show the primary form when the component unmounts
     useEffect(() => {
         return () => {
             setLoggedIn(false);

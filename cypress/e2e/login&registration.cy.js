@@ -1,6 +1,6 @@
 describe('AuthForm Component Tests', () => {
   beforeEach(() => {
-      cy.visit('http://localhost:3000/'); // Assuming your application's URL is '/'
+      cy.visit('http://localhost:3000/');
   });
 
   it('should render the login form', () => {
@@ -23,11 +23,9 @@ describe('AuthForm Component Tests', () => {
 
       cy.wait('@registerRequest').its('response.statusCode').should('eq', 200);
 
-      // Assertion to check for the success message
       cy.get('.auth-form-success-message').should('contain', 'Registration successful! Please login.');
 
-      // Wait for the form to reset and the login form to reappear
-      cy.wait(4000); // Adjust this time if necessary
+      cy.wait(4000); 
       cy.get('#formBasicEmail').should('exist');
       cy.get('#formBasicPassword').should('exist');
   });
@@ -92,7 +90,7 @@ describe('AuthForm Component Tests', () => {
           cy.get('#formBasicPassword').type('password123');
           cy.get('.auth-form-button').contains('Login').click();
       });
-      // Add assertions to check for successful login
+      
   });
 
   it('should allow users to reset password', () => {
@@ -100,6 +98,6 @@ describe('AuthForm Component Tests', () => {
       cy.get('#formBasicEmail').type('test@example.com');
       cy.get('#formNewPassword').type('newpassword123');
       cy.get('.auth-form-button').contains('Reset Password').click();
-      // Add assertions to check for successful password reset
+      
   });
 });

@@ -24,7 +24,7 @@ const LeafletMap = () => {
     const [allMarkers, setAllMarkers] = useState([]);
 
     const onSearchButtonClick = async (e) => {
-        e.preventDefault(); // Prevent from submission
+        e.preventDefault();
         try {
             const response = await axios.get(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${searchQuery}`
@@ -69,7 +69,7 @@ const LeafletMap = () => {
                 data: { lat, lng },
             });
 
-            // Refresh the markers after deletion
+            
             handleSearch();
             setShowDeleteMarkerModal(false);
         } catch (error) {
@@ -89,7 +89,7 @@ const LeafletMap = () => {
             });
 
             console.log(response.data);
-            // Refresh the markers after adding
+            
             handleSearch();
             setShowAddMarkerModal(false);
         } catch (error) {
@@ -126,11 +126,11 @@ const LeafletMap = () => {
                 onClick={() => handleMarkerClick({ lat: result.lat, lng: result.lon })}
                 icon={defaultIcon}
             >
-                {/* You can customize the Popup content based on search result properties */}
+                {}
                 <Popup>
                     <div>
                         <h4>{`Search Result at (${result.lat}, ${result.lon})`}</h4>
-                        {/* Add other details from search result as needed */}
+                        {}
                     </div>
                 </Popup>
             </Marker>
@@ -169,7 +169,7 @@ const LeafletMap = () => {
                                 <h4>{`Marker at (${singleMarker.lat}, ${singleMarker.lng})`}</h4>
                                 {singleMarker.isSpecial && <p>This is a special marker!</p>}
                                 <img src={singleMarker.imageURL} alt="Marker" style={{ width: '100px', height: '100px' }} />
-                                {/* Add other details from markers.json as needed */}
+                                {}
                             </div>
                         </Popup>
                     </Marker>
@@ -265,7 +265,7 @@ return (
                             <Form.Control
                                 type="text"
                                 placeholder="Enter Latitude"
-                                value={newMarkerLat} // Assuming you want to delete the marker based on its coordinates
+                                value={newMarkerLat} 
                                 onChange={(e) => setNewMarkerLat(e.target.value)}
                             />
                         </Form.Group>
@@ -274,7 +274,7 @@ return (
                             <Form.Control
                                 type="text"
                                 placeholder="Enter Longitude"
-                                value={newMarkerLng} // Assuming you want to delete the marker based on its coordinates
+                                value={newMarkerLng} 
                                 onChange={(e) => setNewMarkerLng(e.target.value)}
                             />
                         </Form.Group>
